@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BackboneStore</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <script src="bower_components/modernizr/modernizr.js"></script>
+
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="container">
+            <div class="header">
+                <ul class="nav nav-tabs pull-right">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="#/filter/phone">Phones</a></li>
+                    <li><a href="#/filter/laptop">Laptops</a></li>
+                    <li><a href="#/filter/tablet">Tablets</a></li>
+                    <li><a href="/"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping cart</a></li>
+                    <li><a href="/"><span class="glyphicon glyphicon-cog"></span> Control panel</a></li>
+                    <li><a href="/"><span class="glyphicon glyphicon-user"></span> Sign in</a></li>
+                </ul>
+                <h1 class="text-muted">AlleDrogo</h3>
+            </div>
+            <div class="jumbotron col-md-12">
+                <h1>AlleDrogo</h1>
+                <p class="lead">Najgorsze ceny w miescie!</p>
+                <p><a class="btn btn-lg btn-success" href="/">Zaloz konto</a></p>
+            </div>
+            <div id="backbone" class="row">
+            </div>
+            <div class="footer">
+                <p>Tomasz Lakomy, 2014</p>
+            </div>
+        </div>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+        <!-- build:js scripts/vendor.js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
+        <!-- endbuild -->
+        <!-- build:js scripts/plugins.js -->
+        <!-- endbuild -->
+        <!-- build:js({.tmp,app}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <script src="scripts/models/productItem.js"></script>
+        <script src="scripts/collections/productItems.js"></script>
+        <script src="scripts/views/productView.js"></script>
+        <script src="scripts/views/productListView.js"></script>
+        <script src="scripts/routes/store.js"></script>
+        <script src="scripts/views/singleProduct.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>
