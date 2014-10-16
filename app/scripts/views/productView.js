@@ -13,6 +13,7 @@ BackboneStore.Views = BackboneStore.Views || {};
         
         render: function () {
           console.log("model: " + this.model.toJSON());
+          console.log("JST: " + this.JST);
           console.log("template: " + this.template);
             this.$el.html(this.template(this.model.toJSON()));
             return this;

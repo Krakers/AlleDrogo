@@ -25,7 +25,7 @@ app.get('/api', function (request, response) {
 })
 
 //Connect to database
-mongoose.connect( 'mongodb://localhost/library_database' );
+mongoose.connect( 'mongodb://localhost/store_database' );
 
 //Schemas
 var Keywords = new mongoose.Schema({

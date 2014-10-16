@@ -1,0 +1,36 @@
+{
+    "name": "AlleDrogo",
+    "version": "1.0.0",
+    "description": "AlleDrogo - najgorsze ceny w miescie",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Krakers/AlleDrogo.git"
+    },
+    "author": "Tomasz Lakomy",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Krakers/AlleDrogo/issues"
+    },
+    "homepage": "https://github.com/Krakers/AlleDrogo",
+    "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-concat": "^0.1.6",
+        "grunt-contrib-concat": "^0.5.0",
+        "grunt-contrib-jshint": "^0.10.0",
+        "grunt-contrib-jst": "^0.6.0",
+        "grunt-contrib-nodeunit": "~0.4.1",
+        "grunt-contrib-qunit": "^0.5.2",
+        "grunt-contrib-uglify": "^0.6.0",
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-ejs": "^0.2.0"
+    },
+    "dependencies": {
+        "express": "~3.1.0",
+        "path": "~0.4.9",
+        "mongoose": "~3.5.5"
+    }
+}
