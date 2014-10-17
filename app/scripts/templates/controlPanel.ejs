@@ -4,68 +4,9 @@
         <li><a href="#/control-panel/change-product">Change a product</a></li>
         <li><a href="#/control-panel/remove-product">Remove a product</a></li>
         <li><a href="#/control-panel/show-all-products">Show all products</a></li>
-        <li><a href="#/control-panel/remove-all-products">Delete all products</a></li>
+        <li><a href="#/control-panel/delete-all-products">Delete all products</a></li>
     </ul>
 </div>
-<div class="col-md-8 control-panel-form">
-    <form class="form-horizontal">
-        <fieldset>
-            <!-- Form Name -->
-            <legend class="form-header">Add a new product</legend>
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="product-name">Product name</label>
-                <div class="col-md-4">
-                    <input id="product-name" name="product-name" type="text" placeholder="Insert product name" class="form-control input-md" required="">
-                    
-                </div>
-            </div>
-            <!-- Textarea -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="product-description">Product description</label>
-                <div class="col-md-4">
-                    <textarea class="form-control" id="product-description" name="product-description"></textarea>
-                </div>
-            </div>
-            <!-- Select Basic -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="product-type">Select product type</label>
-                <div class="col-md-4">
-                    <select id="product-type" name="product-type" class="form-control">
-                        <option value="1">Phone</option>
-                        <option value="2">Tablet</option>
-                        <option value="3">Laptop</option>
-                    </select>
-                </div>
-            </div>
-            <!-- File Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="product-image-button">Add product image</label>
-                <div class="col-md-4">
-                    <input id="product-image-button" name="product-image-button" class="input-file" type="file">
-                </div>
-            </div>
-            <!-- Appended Input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="product-price">Product price</label>
-                <div class="col-md-4">
-                    <div class="input-group">
-                        <input id="product-price" name="product-price" class="form-control" placeholder="" type="text" required="">
-                        <span class="input-group-addon">zł</span>
-                    </div>
-                    
-                </div>
-            </div>
-            <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="submit-button">Add product</label>
-                <div class="col-md-4">
-                    <button id="submit-button-new-product" name="submit-button" class="btn btn-success">Submit</button>
-                </div>
-            </div>
-        </fieldset>
-    </form>
-</div>
-<div class="col-md-2">
+<div id="form-container" class="col-md-8 control-panel-form">
     
 </div>
