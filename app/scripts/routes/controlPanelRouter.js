@@ -6,7 +6,11 @@ BackboneStore.Routers = BackboneStore.Routers || {};
   'use strict';
   //Router powinien pobierac kolekcje produktow z API
   BackboneStore.Routers.ControlPanelRouter = Backbone.Router.extend({
-    router: {
+    initialize: function () {
+      console.log("Created control panel router");
+    },
+    $container: $('#backbone'),
+    routes: {
       'control-panel': 'controlPanel',
       'control-panel/add-product': 'addProduct',
       'control-panel/change-product': 'changeProduct',
@@ -35,7 +39,13 @@ BackboneStore.Routers = BackboneStore.Routers || {};
     deleteAllProducts: function() {
       console.log("deleteAllProducts");
     },
-
+    fadeOutFadeIn: function(view) {
+      //Helper function for making display a little bit more smooth
+      var self = this;
+      this.$container.fadeOut(200, function() {
+        $(this).html(view.el).fadeIn('fast');
+      });
+    }
   });
 
 })();

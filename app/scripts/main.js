@@ -11,7 +11,8 @@ window.BackboneStore = {
         'use strict';
         console.log('Hello from Backbone!');
         var storeRouter = new BackboneStore.Routers.Store();
-        //var controlPanelRouter = new BackboneStore.Routers.ControlPanelRouter();
+        var controlPanelRouter = new BackboneStore.Routers.ControlPanelRouter();
+        Backbone.history.start();
     }
 };
 

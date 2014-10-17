@@ -8,8 +8,7 @@ BackboneStore.Routers = BackboneStore.Routers || {};
     routes: {
       '': 'index',
       'product/:id': 'showProduct',
-      'filter/:product': 'filter',
-      'control-panel': 'controlPanel'
+      'filter/:product': 'filter'
     },
     $container: $('#backbone'),
     initialize: function() {
@@ -20,8 +19,6 @@ BackboneStore.Routers = BackboneStore.Routers || {};
       this.productListView = new BackboneStore.Views.Productlistview({
         collection: this.products
       });
-
-      Backbone.history.start();
     },
     index: function() {
       //Show initial product list:
@@ -51,14 +48,6 @@ BackboneStore.Routers = BackboneStore.Routers || {};
       });
       this.filteredListView.render();
       this.fadeOutFadeIn(this.filteredListView);
-    },
-    controlPanel: function() {
-      console.log("Control panel");
-      this.controlPanel = new BackboneStore.Views.Controlpanel({
-        collection: this.products
-      });
-      this.controlPanel.render();
-      this.fadeOutFadeIn(this.controlPanel);
     },
     fadeOutFadeIn: function(view) {
       //Helper function for making display a little bit more smooth
