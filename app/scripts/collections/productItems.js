@@ -7,8 +7,8 @@ BackboneStore.Collections = BackboneStore.Collections || {};
 
     BackboneStore.Collections.Productitems = Backbone.Collection.extend({
 
-        model: BackboneStore.Models.Productitem
-
+        model: BackboneStore.Models.Productitem,
+        url: '/api/products'
     });
 
 })();

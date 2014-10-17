@@ -15,87 +15,86 @@ app.use(app.router);
 //Start server
 var port = 9000;
 
-app.listen(port, function () {
-  console.log('Express server listening on port %d in %s mode', port, app.settings.env);
+app.listen(port, function() {
+    console.log('Express server listening on port %d in %s mode', port, app.settings.env);
 });
 
 //Routes
-app.get('/api', function (request, response) {
-  response.send('Library API is running');
+app.get('/api', function(request, response) {
+    response.send('Store API is running');
 })
 
 //Connect to database
-mongoose.connect( 'mongodb://localhost/store_database' );
+mongoose.connect('mongodb://localhost/store_database');
 
-//Schemas
-var Keywords = new mongoose.Schema({
-  keyword: String
-});
-
-var Book = new mongoose.Schema({
-    title: String,
-    author: String,
-    releaseDate: Date,
-    keywords: [Keywords] //New
+//Create a product Schema
+var Product = new mongoose.Schema({
+    type: String,
+    name: String,
+    description: String,
+    image: String,
+    price: Number
 });
 
 //Models
-var BookModel = mongoose.model( 'Book', Book );
+var ProductModel = mongoose.model('Product', Product);
 
-//Get a list of all books
-app.get('/api/books', function (request, response) {
-  return BookModel.find(function (err, books) {
-    if (!err) {
-      return response.send(books); 
-    } else {
-      return console.log(err);
-    }
-  })
+//Get a list of all products
+app.get('/api/products', function(request, response) {
+    return ProductModel.find(function(err, products) {
+        if (!err) {
+            return response.send(products);
+        } else {
+            return console.log(err); //Whoops!
+        }
+    })
 });
 
-//Insert a new book
-app.post( '/api/books', function( request, response ) {
-    var book = new BookModel({
-        title: request.body.title,
-        author: request.body.author,
-        releaseDate: request.body.releaseDate,
-        keywords: request.body.keywords
+//Insert a new product
+app.post('/api/products', function(request, response) {
+    var product = new ProductModel({
+        type: request.body.type,
+        name: request.body.name,
+        description: request.body.description,
+        image: request.body.image,
+        price: request.body.price
     });
-    
-    return book.save( function( err ) {
-        if( !err ) {
-        console.log( 'created' );
-        return response.send( book );
+
+    return product.save(function(err) {
+        if (!err) {
+            console.log('Created a new product in the database');
+            return response.send(product);
         } else {
-            console.log( err );
+            console.log(err);
         }
     });
 });
 
-//Get a single book by id:
-app.get('/api/books/:id', function (request, response) {
-    return BookModel.findById(request.params.id, function (err, book) {
+//Get a single product by id:
+app.get('/api/products/:id', function (request, response) {
+    return ProductModel.findById(request.params.id, function (err, product) {
       if (!err) {
-        return response.send(book);
+        return response.send(product);
       } else {
         return console.log(err);
       }
     });
 });
 
-//Update a book:
-app.put('/api/books/:id', function (request, response) {
-  console.log('Updating book ' + request.body.title);
-  return BookModel.findById(request.params.id, function (err, book) {
-    book.title = request.body.title; //Update book properties
-    book.author = request.body.author;
-    book.releaseDate = request.body.releaseDate,
-    book.keywords = request.body.keywords;
+//Update a product:
+app.put('/api/products/:id', function (request, response) {
+  console.log('Updating product ' + request.body.title);
+  return ProductModel.findById(request.params.id, function (err, product) {
+    product.type = request.body.type;
+    product.name = request.body.name;
+    product.description = request.body.description;
+    product.image = request.body.image;
+    product.price = request.body.price;
 
-    return book.save(function (err) {
+    return product.save(function (err) {
       if (!err) {
-        console.log('Book ' + book.title + ' updated');
-        return response.send(book);
+        console.log('product ' + product.name + ' updated');
+        return response.send(product);
       } else {
         console.log(err);
       }
@@ -103,13 +102,13 @@ app.put('/api/books/:id', function (request, response) {
   });
 });
 
-//Delete a book:
-app.delete('/api/books/:id', function (request, response) {
-  console.log('Deleting a book with id ' + request.params.id);
-  return BookModel.findById(request.params.id, function (err, book) {
-    return book.remove(function (err) {
+//Delete a product:
+app.delete('/api/products/:id', function(request, response) {
+  console.log('Deleting a product with id ' + request.params.id);
+  return ProductModel.findById(request.params.id, function(err, product) {
+    return product.remove(function(err) {
       if (!err) {
-        console.log('Book removed');
+        console.log('product removed');
         return response.send('');
       } else {
         console.log(err);
