@@ -40,6 +40,13 @@ module.exports = function(grunt) {
             }
         },
         watch: {
+            all: {
+                options: {
+                    livereload: true
+                },
+                files: ['<%= jshint.files %>', 'app/styles/**/*.css', 'app/*.html'],
+                tasks: ['jshint'],
+            },
             jst: {
                 files: [
                     'app/scripts/templates/*.ejs'
@@ -49,7 +56,7 @@ module.exports = function(grunt) {
             jshint: {
                 files: ['<%= jshint.files %>'],
                 tasks: ['jshint']
-            },
+            }
         },
         jst: {
             compile: {
@@ -67,7 +74,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jst');
 
-    grunt.registerTask('createDefaultTemplate', function () {
+    grunt.registerTask('createDefaultTemplate', function() {
         grunt.file.write('app/render/templates.js', 'this.JST = this.JST || {};');
     });
 
