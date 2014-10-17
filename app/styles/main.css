@@ -1,17 +1,22 @@
+body {
+    background-image: url('../images/bg.png')
+}
+
 .browsehappy {
     margin: 0.2em 0;
-    background: #ccc;
+    background: #D5DED9;
     color: #000;
     padding: 0.2em 0;
 }
 
 .jumbotron {
     margin-top: 20px;
+    background-image: url('../images/pentagon.png')
 }
 
 .product-section {
     height: 330px;
-    background-color: #EEE;
+    border: groove;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -42,7 +47,6 @@ p {
 @media screen and (max-width: 1000px) {
     .product-section {
         height: 250px;
-        background-color: #EEE;
         margin-bottom: 5px;
     }
 
@@ -53,4 +57,14 @@ p {
         display: inline;
         margin: 0px 5px 5px 5px;
     }
+}
+
+/*Control panel:*/
+
+.control-panel-form {
+    height: 400px;
+}
+
+.form-header {
+    font-size: 30px;
 }
