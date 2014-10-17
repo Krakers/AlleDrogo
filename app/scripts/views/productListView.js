@@ -7,7 +7,6 @@ BackboneStore.Views = BackboneStore.Views || {};
   BackboneStore.Views.Productlistview = Backbone.View.extend({
     $container: $('#backbone'),
     render: function() {
-      console.log("This.collection.length: " + this.collection.length);
       this.collection.forEach(this.addOne, this);
       this.$container.html(this.el);
       return this;
