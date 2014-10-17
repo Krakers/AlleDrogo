@@ -27,10 +27,11 @@ BackboneStore.Routers = BackboneStore.Routers || {};
       //Show initial product list:
       this.fadeOutFadeIn(this.productListView);
     },
-    showProduct: function(id) {
+    showProduct: function(productId) {
       //Display a single product:
+      console.log(this.products);
       this.singleProductView = new BackboneStore.Views.Singleproduct({
-        model: this.products.at(id - 1)
+        model: this.products.get(productId)
       });
       this.singleProductView.render();
 
@@ -38,10 +39,14 @@ BackboneStore.Routers = BackboneStore.Routers || {};
     },
     filter: function(productType) {
       //Filter products by type (phone, laptop, tablet) and display products of only one type:
+      console.log(this.products);
+
       var filteredProducts = this.products.where({
         type: productType
       });
-      this.filteredListView = new BackboneStore.Views.Productlistview({
+
+      console.log(filteredProducts);
+      this.filteredListView = new BackboneStore.Views.FilteredListView({
         collection: filteredProducts
       });
       this.filteredListView.render();
@@ -56,7 +61,7 @@ BackboneStore.Routers = BackboneStore.Routers || {};
       this.fadeOutFadeIn(this.controlPanel);
     },
     fadeOutFadeIn: function(view) {
-      //Helper function for making filter a little bit more smooth
+      //Helper function for making display a little bit more smooth
       var self = this;
       this.$container.fadeOut(200, function() {
         $(this).html(view.el).fadeIn('fast');

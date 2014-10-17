@@ -9,16 +9,14 @@ BackboneStore.Views = BackboneStore.Views || {};
 
         template: JST['app/scripts/templates/controlPanel.ejs'],
 
-        events: {
-            "click #submit-button-new-product": "addNewProduct"
-        },
+        events: {},
 
         render: function () {
             this.$el.html(this.template());
             return this;
         },
 
-        addNewProduct: function (e) {
+        submit: function (e) {
             console.log("Adding new product");
         }
 
